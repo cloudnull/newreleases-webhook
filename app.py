@@ -82,6 +82,10 @@ def newrelease():
     if request.headers.get("Token") != WEBHOOK_TOKEN:
         return Response("Missing Token", status=400)
 
+    if "X-Newreleases-Signature" not in request.headers:
+        # In the future we should compare the signature re:https://newreleases.io/webhooks
+        return Response("Missing Signature", status=400)
+
     data = request.json
     if data:
         try:
