@@ -1,0 +1,8 @@
+{
+    "fields": {
+       "project": "{project}",
+       "version": "{version}",
+       "message": "{note_message_or_url}",
+       "note_url": "{note_url}"
+    }
+}

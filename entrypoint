@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+set -eu
+
+/opt/jira-webhook/bin/uwsgi --env "WEBHOOK_TOKEN=${WEBHOOK_TOKEN}" \
+                            --env "JIRA_USER_EMAIL=${JIRA_USER_EMAIL:-}" \
+                            --env "JIRA_API_TOKEN=${JIRA_API_TOKEN:-}" \
+                            --env "JIRA_PROJECT=${JIRA_PROJECT:-}" \
+                            --enable-threads \
+                            --threads 2 \
+                            --processes 8 \
+                            --socket 0.0.0.0:5000 \
+                            --protocol=http \
+                            -w app:APP

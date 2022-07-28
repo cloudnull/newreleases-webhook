@@ -1,0 +1,7 @@
+Project {project} has released a new version which may require an upgrade.
+Review release {version} for compatibility and if required, schedule a
+maintenance to perform the required upgrade.
+
+{note_message_or_url}
+
+Release note URL {note_url}
